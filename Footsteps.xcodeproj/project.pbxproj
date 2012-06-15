@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F3158BE99C002DC68B /* UIKit.framework */; };
+		CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F5158BE99C002DC68B /* Foundation.framework */; };
+		CEDA37F8158BE99C002DC68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */; };
+		CEDA37FA158BE99C002DC68B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F9158BE99C002DC68B /* CoreData.framework */; };
+		CEDA3800158BE99C002DC68B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEDA37FE158BE99C002DC68B /* InfoPlist.strings */; };
+		CEDA3802158BE99C002DC68B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3801158BE99C002DC68B /* main.m */; };
+		CEDA3806158BE99C002DC68B /* FAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3805158BE99C002DC68B /* FAppDelegate.m */; };
+		CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA3807158BE99C002DC68B /* MainStoryboard.storyboard */; };
+		CEDA380C158BE99C002DC68B /* Footsteps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEDA380A158BE99C002DC68B /* Footsteps.xcdatamodeld */; };
+		CEDA380F158BE99C002DC68B /* FMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA380E158BE99C002DC68B /* FMasterViewController.m */; };
+		CEDA3812158BE99C002DC68B /* FDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3811158BE99C002DC68B /* FDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CEDA37EF158BE99C002DC68B /* Footsteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footsteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDA37F3158BE99C002DC68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEDA37F5158BE99C002DC68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEDA37F9158BE99C002DC68B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CEDA37FD158BE99C002DC68B /* Footsteps-Info.plist */ = {isa = PBXFileReference; path = "Footsteps-Info.plist"; sourceTree = "<group>"; };
+		CEDA37FF158BE99C002DC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEDA3801158BE99C002DC68B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEDA3803158BE99C002DC68B /* Footsteps-Prefix.pch */ = {isa = PBXFileReference; path = "Footsteps-Prefix.pch"; sourceTree = "<group>"; };
+		CEDA3804158BE99C002DC68B /* FAppDelegate.h */ = {isa = PBXFileReference; path = FAppDelegate.h; sourceTree = "<group>"; };
+		CEDA3805158BE99C002DC68B /* FAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAppDelegate.m; sourceTree = "<group>"; };
+		CEDA3808158BE99C002DC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CEDA380B158BE99C002DC68B /* Footsteps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footsteps.xcdatamodel; sourceTree = "<group>"; };
+		CEDA380D158BE99C002DC68B /* FMasterViewController.h */ = {isa = PBXFileReference; path = FMasterViewController.h; sourceTree = "<group>"; };
+		CEDA380E158BE99C002DC68B /* FMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMasterViewController.m; sourceTree = "<group>"; };
+		CEDA3810158BE99C002DC68B /* FDetailViewController.h */ = {isa = PBXFileReference; path = FDetailViewController.h; sourceTree = "<group>"; };
+		CEDA3811158BE99C002DC68B /* FDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEDA37EC158BE99C002DC68B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */,
+				CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */,
+				CEDA37F8158BE99C002DC68B /* CoreGraphics.framework in Frameworks */,
+				CEDA37FA158BE99C002DC68B /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEDA37E4158BE99C002DC68B = {
+			isa = PBXGroup;
+			children = (
+				CEDA37FB158BE99C002DC68B /* Footsteps */,
+				CEDA37F2158BE99C002DC68B /* Frameworks */,
+				CEDA37F0158BE99C002DC68B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEDA37F0158BE99C002DC68B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA37EF158BE99C002DC68B /* Footsteps.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEDA37F2158BE99C002DC68B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA37F3158BE99C002DC68B /* UIKit.framework */,
+				CEDA37F5158BE99C002DC68B /* Foundation.framework */,
+				CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */,
+				CEDA37F9158BE99C002DC68B /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEDA37FB158BE99C002DC68B /* Footsteps */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA3804158BE99C002DC68B /* FAppDelegate.h */,
+				CEDA3805158BE99C002DC68B /* FAppDelegate.m */,
+				CEDA3807158BE99C002DC68B /* MainStoryboard.storyboard */,
+				CEDA380D158BE99C002DC68B /* FMasterViewController.h */,
+				CEDA380E158BE99C002DC68B /* FMasterViewController.m */,
+				CEDA3810158BE99C002DC68B /* FDetailViewController.h */,
+				CEDA3811158BE99C002DC68B /* FDetailViewController.m */,
+				CEDA380A158BE99C002DC68B /* Footsteps.xcdatamodeld */,
+				CEDA37FC158BE99C002DC68B /* Supporting Files */,
+			);
+			path = Footsteps;
+			sourceTree = "<group>";
+		};
+		CEDA37FC158BE99C002DC68B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA37FD158BE99C002DC68B /* Footsteps-Info.plist */,
+				CEDA37FE158BE99C002DC68B /* InfoPlist.strings */,
+				CEDA3801158BE99C002DC68B /* main.m */,
+				CEDA3803158BE99C002DC68B /* Footsteps-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEDA37EE158BE99C002DC68B /* Footsteps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEDA3815158BE99C002DC68B /* Build configuration list for PBXNativeTarget "Footsteps" */;
+			buildPhases = (
+				CEDA37EB158BE99C002DC68B /* Sources */,
+				CEDA37EC158BE99C002DC68B /* Frameworks */,
+				CEDA37ED158BE99C002DC68B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Footsteps;
+			productName = Footsteps;
+			productReference = CEDA37EF158BE99C002DC68B /* Footsteps.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEDA37E6158BE99C002DC68B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = F;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Jakub Konka";
+			};
+			buildConfigurationList = CEDA37E9158BE99C002DC68B /* Build configuration list for PBXProject "Footsteps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEDA37E4158BE99C002DC68B;
+			productRefGroup = CEDA37F0158BE99C002DC68B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEDA37EE158BE99C002DC68B /* Footsteps */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEDA37ED158BE99C002DC68B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDA3800158BE99C002DC68B /* InfoPlist.strings in Resources */,
+				CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEDA37EB158BE99C002DC68B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEDA3802158BE99C002DC68B /* main.m in Sources */,
+				CEDA3806158BE99C002DC68B /* FAppDelegate.m in Sources */,
+				CEDA380C158BE99C002DC68B /* Footsteps.xcdatamodeld in Sources */,
+				CEDA380F158BE99C002DC68B /* FMasterViewController.m in Sources */,
+				CEDA3812158BE99C002DC68B /* FDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEDA37FE158BE99C002DC68B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDA37FF158BE99C002DC68B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEDA3807158BE99C002DC68B /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDA3808158BE99C002DC68B /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEDA3813158BE99C002DC68B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CEDA3814158BE99C002DC68B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEDA3816158BE99C002DC68B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Footsteps/Footsteps-Prefix.pch";
+				INFOPLIST_FILE = "Footsteps/Footsteps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEDA3817158BE99C002DC68B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Footsteps/Footsteps-Prefix.pch";
+				INFOPLIST_FILE = "Footsteps/Footsteps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEDA37E9158BE99C002DC68B /* Build configuration list for PBXProject "Footsteps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDA3813158BE99C002DC68B /* Debug */,
+				CEDA3814158BE99C002DC68B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEDA3815158BE99C002DC68B /* Build configuration list for PBXNativeTarget "Footsteps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEDA3816158BE99C002DC68B /* Debug */,
+				CEDA3817158BE99C002DC68B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEDA380A158BE99C002DC68B /* Footsteps.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEDA380B158BE99C002DC68B /* Footsteps.xcdatamodel */,
+			);
+			currentVersion = CEDA380B158BE99C002DC68B /* Footsteps.xcdatamodel */;
+			path = Footsteps.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CEDA37E6158BE99C002DC68B /* Project object */;
+}
