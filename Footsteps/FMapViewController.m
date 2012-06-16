@@ -9,7 +9,7 @@
 #import "FMapViewController.h"
 #import "FConstants.h"
 #import "FAppDelegate.h"
-#import "FLocationAnnotation.h"
+#import "FLocationRecord.h"
 
 @interface FMapViewController ()
 
@@ -78,18 +78,7 @@
   [fetchRequest setEntity:entity];
   NSError *error;
   NSArray *locations = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-  for (NSManagedObject *location in locations)
-  {
-    double latitude = ((NSNumber *)[location valueForKey:LATITUDE]).doubleValue;
-    double longitude = ((NSNumber *)[location valueForKey:LONGITUDE]).doubleValue;
-    double accuracy = ((NSNumber *)[location valueForKey:ACCURACY]).doubleValue;
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setTimeStyle:NSDateFormatterMediumStyle];
-    [format setDateStyle:NSDateFormatterLongStyle];
-    NSString *timestamp = [format stringFromDate:(NSDate *)[location valueForKey:TIMESTAMP]];
-    FLocationAnnotation *annotation = [[FLocationAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude, longitude) title:timestamp subtitle:[NSString stringWithFormat:@"%gm", accuracy]];
-    [_mapView addAnnotation:annotation];
-  }
+  [_mapView addAnnotations:locations];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -9,6 +9,7 @@
 #import "FListViewController.h"
 #import "FConstants.h"
 #import "FAppDelegate.h"
+#import "FLocationRecord.h"
 
 @interface FListViewController ()
 
@@ -101,16 +102,13 @@
   if (!cell)
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
   
-  NSManagedObject *location = [_locations objectAtIndex:indexPath.row];
+  FLocationRecord *location = [_locations objectAtIndex:indexPath.row];
   NSDateFormatter *format = [[NSDateFormatter alloc] init];
   [format setTimeStyle:NSDateFormatterMediumStyle];
   [format setDateStyle:NSDateFormatterLongStyle];
-  NSString *timestamp = [format stringFromDate:(NSDate *)[location valueForKey:TIMESTAMP]];
+  NSString *timestamp = [format stringFromDate:location.timeStamp];
   cell.textLabel.text = [NSString stringWithFormat:@"%@", timestamp];
-  NSNumber *latitudeObj = [location valueForKey:LATITUDE];
-  NSNumber *longitudeObj = [location valueForKey:LONGITUDE];
-  NSNumber *accuracyObj = [location valueForKey:ACCURACY];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Latitude: %g\nLongitude: %g\nAccuracy: %gm", latitudeObj.doubleValue, longitudeObj.doubleValue, accuracyObj.doubleValue];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"Latitude: %g\nLongitude: %g\nAccuracy: %gm", location.latitude.doubleValue, location.longitude.doubleValue, location.accuracy.doubleValue];
   
   return cell;
 }
