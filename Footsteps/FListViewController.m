@@ -19,7 +19,7 @@
 
 @implementation FListViewController
 
-static NSString *LIST_VIEW_TITLE = @"Locations";
+static NSString *LIST_VIEW_TITLE = @"ListView";
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;

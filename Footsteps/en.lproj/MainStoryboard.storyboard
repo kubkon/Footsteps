@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-813" y="120"/>
         </scene>
-        <!--Master View Controller-->
+        <!--Master View Controller - Footsteps-->
         <scene sceneID="gXT-aE-Ela">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHU-0m-3Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9kQ-7t-rl9"/>
+                    <navigationItem key="navigationItem" title="Footsteps" id="9kQ-7t-rl9"/>
                     <connections>
                         <outlet property="_startStopButton" destination="pI1-J7-zjc" id="aub-8Z-0Z3"/>
                     </connections>
@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="-346" y="120"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map View Controller - MapView-->
         <scene sceneID="Wgr-Tv-cG1">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P52-pW-MHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MtQ-Wm-5h6"/>
+                    <navigationItem key="navigationItem" title="MapView" id="MtQ-Wm-5h6"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="191" y="384"/>
