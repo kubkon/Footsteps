@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7D9332158CCF40007377E3 /* FConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D9331158CCF40007377E3 /* FConstants.m */; };
 		CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F3158BE99C002DC68B /* UIKit.framework */; };
 		CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F5158BE99C002DC68B /* Foundation.framework */; };
 		CEDA37F8158BE99C002DC68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE7D9331158CCF40007377E3 /* FConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FConstants.m; sourceTree = "<group>"; };
 		CEDA37EF158BE99C002DC68B /* Footsteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footsteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA37F3158BE99C002DC68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEDA37F5158BE99C002DC68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +110,7 @@
 			children = (
 				CEDA382C158C1AB6002DC68B /* Resources */,
 				CEDA3828158BFEAD002DC68B /* FConstants.h */,
+				CE7D9331158CCF40007377E3 /* FConstants.m */,
 				CEDA3838158C1F79002DC68B /* FLocationRecord.h */,
 				CEDA3839158C1F79002DC68B /* FLocationRecord.m */,
 				CEDA3823158BFC7E002DC68B /* FLocationManagerDelegate.h */,
@@ -219,6 +222,7 @@
 				CEDA3820158BF35E002DC68B /* FMapViewController.m in Sources */,
 				CEDA3825158BFC7E002DC68B /* FLocationManagerDelegate.m in Sources */,
 				CEDA383A158C1F79002DC68B /* FLocationRecord.m in Sources */,
+				CE7D9332158CCF40007377E3 /* FConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +334,7 @@
 				CEDA3817158BE99C002DC68B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

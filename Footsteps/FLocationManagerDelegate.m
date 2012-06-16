@@ -9,6 +9,9 @@
 #import "FLocationManagerDelegate.h"
 #import "FConstants.h"
 
+#define DISTANCE_FILTER 50
+#define MIN_AGE_LOCATION_UPDATE 60.0
+
 @implementation FLocationManagerDelegate
 
 @synthesize locationManager = _locationManager;

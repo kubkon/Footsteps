@@ -15,6 +15,9 @@
 
 @implementation FMasterViewController
 
+static NSString *START_BUTTON_LABEL = @"Start";
+static NSString *STOP_BUTTON_LABEL = @"Stop";
+
 @synthesize startStopButton = _startStopButton;
 @synthesize managedObjectContext;
 @synthesize locManager = _locManager;

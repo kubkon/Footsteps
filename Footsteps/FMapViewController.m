@@ -11,11 +11,15 @@
 #import "FAppDelegate.h"
 #import "FLocationRecord.h"
 
+#define TIMESPAN (-6*60*60)
+
 @interface FMapViewController ()
 
 @end
 
 @implementation FMapViewController
+
+static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
 
 @synthesize mapView = _mapView;
 @synthesize portraitFrameSize = _portraitFrameSize;
@@ -76,14 +80,27 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
   [fetchRequest setEntity:entity];
+  // Fetch only records that occurred up to 6 hours ago (inclusive)
   NSDate *now = [NSDate date];
-  NSDate *dateSixHoursAgo = [now dateByAddingTimeInterval:(-6*60*60)];
+  NSDate *dateSixHoursAgo = [now dateByAddingTimeInterval:TIMESPAN];
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeStamp >= %@", dateSixHoursAgo];
   [fetchRequest setPredicate:predicate];
+  // Sort by timeStamp descending
+  NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:TIMESTAMP ascending:NO];
+  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
   NSError *error;
+  // Execute the fetch request
   NSArray *locations = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
   if ([locations count] > 0)
+  {
+    // Place location updates as annotations on the map
     [_mapView addAnnotations:locations];
+    // Center the map on the latest location update annotation with
+    // a high zoom level (approx. 2km in both latitude and longitude)
+    CLLocationCoordinate2D center = ((FLocationRecord *)[locations objectAtIndex:0]).coordinate;
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.02, 0.02);
+    [_mapView setRegion:MKCoordinateRegionMake(center, span) animated:YES];
+  }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

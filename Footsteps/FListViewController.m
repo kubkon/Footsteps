@@ -11,11 +11,15 @@
 #import "FAppDelegate.h"
 #import "FLocationRecord.h"
 
+#define LIST_BATCH_SIZE 20
+
 @interface FListViewController ()
 
 @end
 
 @implementation FListViewController
+
+static NSString *LIST_VIEW_TITLE = @"Locations";
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -31,7 +35,7 @@
   
   NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:TIMESTAMP ascending:NO];
   [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
-  [fetchRequest setFetchBatchSize:20];
+  [fetchRequest setFetchBatchSize:LIST_BATCH_SIZE];
   
   NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
   _fetchedResultsController = fetchedResultsController;
