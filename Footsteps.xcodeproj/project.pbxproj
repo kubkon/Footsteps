@@ -16,8 +16,14 @@
 		CEDA3806158BE99C002DC68B /* FAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3805158BE99C002DC68B /* FAppDelegate.m */; };
 		CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA3807158BE99C002DC68B /* MainStoryboard.storyboard */; };
 		CEDA380C158BE99C002DC68B /* Footsteps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEDA380A158BE99C002DC68B /* Footsteps.xcdatamodeld */; };
-		CEDA380F158BE99C002DC68B /* FMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA380E158BE99C002DC68B /* FMasterViewController.m */; };
-		CEDA3812158BE99C002DC68B /* FDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3811158BE99C002DC68B /* FDetailViewController.m */; };
+		CEDA381A158BEB29002DC68B /* FMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3819158BEB29002DC68B /* FMasterViewController.m */; };
+		CEDA381D158BF271002DC68B /* FListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA381C158BF271002DC68B /* FListViewController.m */; };
+		CEDA3820158BF35E002DC68B /* FMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA381F158BF35E002DC68B /* FMapViewController.m */; };
+		CEDA3822158BF40C002DC68B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA3821158BF40C002DC68B /* MapKit.framework */; };
+		CEDA3825158BFC7E002DC68B /* FLocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3824158BFC7E002DC68B /* FLocationManagerDelegate.m */; };
+		CEDA3827158BFCA1002DC68B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA3826158BFCA1002DC68B /* CoreLocation.framework */; };
+		CEDA382B158C141A002DC68B /* FLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA382A158C141A002DC68B /* FLocationAnnotation.m */; };
+		CEDA382E158C1AC4002DC68B /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDA382D158C1AC4002DC68B /* marker.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,18 +32,28 @@
 		CEDA37F5158BE99C002DC68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CEDA37F9158BE99C002DC68B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CEDA37FD158BE99C002DC68B /* Footsteps-Info.plist */ = {isa = PBXFileReference; path = "Footsteps-Info.plist"; sourceTree = "<group>"; };
+		CEDA37FD158BE99C002DC68B /* Footsteps-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Footsteps-Info.plist"; sourceTree = "<group>"; };
 		CEDA37FF158BE99C002DC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEDA3801158BE99C002DC68B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CEDA3803158BE99C002DC68B /* Footsteps-Prefix.pch */ = {isa = PBXFileReference; path = "Footsteps-Prefix.pch"; sourceTree = "<group>"; };
-		CEDA3804158BE99C002DC68B /* FAppDelegate.h */ = {isa = PBXFileReference; path = FAppDelegate.h; sourceTree = "<group>"; };
+		CEDA3803158BE99C002DC68B /* Footsteps-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Footsteps-Prefix.pch"; sourceTree = "<group>"; };
+		CEDA3804158BE99C002DC68B /* FAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAppDelegate.h; sourceTree = "<group>"; };
 		CEDA3805158BE99C002DC68B /* FAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAppDelegate.m; sourceTree = "<group>"; };
 		CEDA3808158BE99C002DC68B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CEDA380B158BE99C002DC68B /* Footsteps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footsteps.xcdatamodel; sourceTree = "<group>"; };
-		CEDA380D158BE99C002DC68B /* FMasterViewController.h */ = {isa = PBXFileReference; path = FMasterViewController.h; sourceTree = "<group>"; };
-		CEDA380E158BE99C002DC68B /* FMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMasterViewController.m; sourceTree = "<group>"; };
-		CEDA3810158BE99C002DC68B /* FDetailViewController.h */ = {isa = PBXFileReference; path = FDetailViewController.h; sourceTree = "<group>"; };
-		CEDA3811158BE99C002DC68B /* FDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDetailViewController.m; sourceTree = "<group>"; };
+		CEDA3818158BEB29002DC68B /* FMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMasterViewController.h; sourceTree = "<group>"; };
+		CEDA3819158BEB29002DC68B /* FMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMasterViewController.m; sourceTree = "<group>"; };
+		CEDA381B158BF271002DC68B /* FListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FListViewController.h; sourceTree = "<group>"; };
+		CEDA381C158BF271002DC68B /* FListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FListViewController.m; sourceTree = "<group>"; };
+		CEDA381E158BF35E002DC68B /* FMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMapViewController.h; sourceTree = "<group>"; };
+		CEDA381F158BF35E002DC68B /* FMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMapViewController.m; sourceTree = "<group>"; };
+		CEDA3821158BF40C002DC68B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CEDA3823158BFC7E002DC68B /* FLocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLocationManagerDelegate.h; sourceTree = "<group>"; };
+		CEDA3824158BFC7E002DC68B /* FLocationManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLocationManagerDelegate.m; sourceTree = "<group>"; };
+		CEDA3826158BFCA1002DC68B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CEDA3828158BFEAD002DC68B /* FConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FConstants.h; sourceTree = "<group>"; };
+		CEDA3829158C141A002DC68B /* FLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLocationAnnotation.h; sourceTree = "<group>"; };
+		CEDA382A158C141A002DC68B /* FLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLocationAnnotation.m; sourceTree = "<group>"; };
+		CEDA382D158C1AC4002DC68B /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDA3827158BFCA1002DC68B /* CoreLocation.framework in Frameworks */,
+				CEDA3822158BF40C002DC68B /* MapKit.framework in Frameworks */,
 				CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */,
 				CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */,
 				CEDA37F8158BE99C002DC68B /* CoreGraphics.framework in Frameworks */,
@@ -75,6 +93,8 @@
 		CEDA37F2158BE99C002DC68B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA3826158BFCA1002DC68B /* CoreLocation.framework */,
+				CEDA3821158BF40C002DC68B /* MapKit.framework */,
 				CEDA37F3158BE99C002DC68B /* UIKit.framework */,
 				CEDA37F5158BE99C002DC68B /* Foundation.framework */,
 				CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */,
@@ -86,13 +106,21 @@
 		CEDA37FB158BE99C002DC68B /* Footsteps */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA382C158C1AB6002DC68B /* Resources */,
+				CEDA3828158BFEAD002DC68B /* FConstants.h */,
+				CEDA3829158C141A002DC68B /* FLocationAnnotation.h */,
+				CEDA382A158C141A002DC68B /* FLocationAnnotation.m */,
+				CEDA3823158BFC7E002DC68B /* FLocationManagerDelegate.h */,
+				CEDA3824158BFC7E002DC68B /* FLocationManagerDelegate.m */,
 				CEDA3804158BE99C002DC68B /* FAppDelegate.h */,
 				CEDA3805158BE99C002DC68B /* FAppDelegate.m */,
+				CEDA3818158BEB29002DC68B /* FMasterViewController.h */,
+				CEDA3819158BEB29002DC68B /* FMasterViewController.m */,
+				CEDA381B158BF271002DC68B /* FListViewController.h */,
+				CEDA381C158BF271002DC68B /* FListViewController.m */,
+				CEDA381E158BF35E002DC68B /* FMapViewController.h */,
+				CEDA381F158BF35E002DC68B /* FMapViewController.m */,
 				CEDA3807158BE99C002DC68B /* MainStoryboard.storyboard */,
-				CEDA380D158BE99C002DC68B /* FMasterViewController.h */,
-				CEDA380E158BE99C002DC68B /* FMasterViewController.m */,
-				CEDA3810158BE99C002DC68B /* FDetailViewController.h */,
-				CEDA3811158BE99C002DC68B /* FDetailViewController.m */,
 				CEDA380A158BE99C002DC68B /* Footsteps.xcdatamodeld */,
 				CEDA37FC158BE99C002DC68B /* Supporting Files */,
 			);
@@ -108,6 +136,14 @@
 				CEDA3803158BE99C002DC68B /* Footsteps-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEDA382C158C1AB6002DC68B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA382D158C1AC4002DC68B /* marker.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +200,7 @@
 			files = (
 				CEDA3800158BE99C002DC68B /* InfoPlist.strings in Resources */,
 				CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */,
+				CEDA382E158C1AC4002DC68B /* marker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,8 +214,11 @@
 				CEDA3802158BE99C002DC68B /* main.m in Sources */,
 				CEDA3806158BE99C002DC68B /* FAppDelegate.m in Sources */,
 				CEDA380C158BE99C002DC68B /* Footsteps.xcdatamodeld in Sources */,
-				CEDA380F158BE99C002DC68B /* FMasterViewController.m in Sources */,
-				CEDA3812158BE99C002DC68B /* FDetailViewController.m in Sources */,
+				CEDA381A158BEB29002DC68B /* FMasterViewController.m in Sources */,
+				CEDA381D158BF271002DC68B /* FListViewController.m in Sources */,
+				CEDA3820158BF35E002DC68B /* FMapViewController.m in Sources */,
+				CEDA3825158BFC7E002DC68B /* FLocationManagerDelegate.m in Sources */,
+				CEDA382B158C141A002DC68B /* FLocationAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,8 @@
 //
 
 #import "FAppDelegate.h"
-
 #import "FMasterViewController.h"
+#import "FLocationManagerDelegate.h"
 
 @implementation FAppDelegate
 

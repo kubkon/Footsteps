@@ -7,12 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLocationManagerDelegate.h"
 
-#import <CoreData/CoreData.h>
+@interface FMasterViewController : UIViewController
+{
+  IBOutlet UIButton *_startStopButton;
+  FLocationManagerDelegate *_locManager;
+}
 
-@interface FMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@property (nonatomic, retain) UIButton *startStopButton;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) FLocationManagerDelegate *locManager;
+@property (nonatomic, assign) BOOL isGathering;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+- (IBAction)gatherDataOnClick:(id)sender;
+
+- (void)startGatheringLocationData;
+- (void)stopGatheringLocationData;
+
+- (void)saveToUserDefaults:(BOOL)gathering;
+- (BOOL)retrieveFromUserDefaults;
 
 @end
