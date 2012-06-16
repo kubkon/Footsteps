@@ -76,9 +76,14 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
   [fetchRequest setEntity:entity];
+  NSDate *now = [NSDate date];
+  NSDate *dateSixHoursAgo = [now dateByAddingTimeInterval:(-6*60*60)];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeStamp >= %@", dateSixHoursAgo];
+  [fetchRequest setPredicate:predicate];
   NSError *error;
   NSArray *locations = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-  [_mapView addAnnotations:locations];
+  if ([locations count] > 0)
+    [_mapView addAnnotations:locations];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
