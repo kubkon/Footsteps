@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface FListViewController : UITableViewController
+@interface FListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
-  NSArray *_locations;
   NSManagedObjectContext *_managedObjectContext;
+  NSFetchedResultsController *_fetchedResultsController;
 }
 
-@property (nonatomic, retain) NSArray *locations;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

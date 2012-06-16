@@ -17,8 +17,28 @@
 
 @implementation FListViewController
 
-@synthesize locations = _locations;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize fetchedResultsController = _fetchedResultsController;
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+  if (_fetchedResultsController)
+    return _fetchedResultsController;
+  
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
+  [fetchRequest setEntity:entity];
+  
+  NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:TIMESTAMP ascending:NO];
+  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+  [fetchRequest setFetchBatchSize:20];
+  
+  NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+  _fetchedResultsController = fetchedResultsController;
+  _fetchedResultsController.delegate = self;
+  
+  return _fetchedResultsController;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,11 +47,6 @@
       // Custom initialization
   }
   return self;
-}
-
-- (void)dealloc
-{
-  _locations = nil;
 }
 
 - (void)viewDidLoad
@@ -58,6 +73,7 @@
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   // e.g. self.myOutlet = nil;
+  _fetchedResultsController = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,10 +83,11 @@
   if (_managedObjectContext)
   {
     NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
-    [fetchRequest setEntity:entity];
-    _locations = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (![[self fetchedResultsController] performFetch:&error])
+    {
+      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      exit(-1);
+    }
   }
 }
 
@@ -90,7 +107,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   // Return the number of rows in the section.
-  return [_locations count];
+  id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+  return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +120,7 @@
   if (!cell)
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
   
-  FLocationRecord *location = [_locations objectAtIndex:indexPath.row];
+  FLocationRecord *location = [_fetchedResultsController objectAtIndexPath:indexPath];
   NSDateFormatter *format = [[NSDateFormatter alloc] init];
   [format setTimeStyle:NSDateFormatterMediumStyle];
   [format setDateStyle:NSDateFormatterLongStyle];
@@ -163,6 +181,59 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Fetched results controller delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+  [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+  UITableView *tableView = self.tableView;
+  
+  switch (type)
+  {
+    case NSFetchedResultsChangeInsert:
+      [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeDelete:
+      [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeMove:
+      [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    default:
+      break;
+  }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+  switch (type)
+  {
+    case NSFetchedResultsChangeInsert:
+      [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    case NSFetchedResultsChangeDelete:
+      [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+      break;
+      
+    default:
+      break;
+  }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+  [self.tableView endUpdates];
 }
 
 @end
