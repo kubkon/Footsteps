@@ -25,7 +25,4 @@
 - (void)startGatheringLocationData;
 - (void)stopGatheringLocationData;
 
-- (void)saveToUserDefaults:(BOOL)gathering;
-- (BOOL)retrieveFromUserDefaults;
-
 @end

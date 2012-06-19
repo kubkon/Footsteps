@@ -9,6 +9,7 @@
 #import "FAppDelegate.h"
 #import "FMasterViewController.h"
 #import "FLocationManagerDelegate.h"
+#import "FConstants.h"
 
 @implementation FAppDelegate
 
@@ -19,11 +20,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+  // Override point for customization after application launch.
   UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
   FMasterViewController *controller = (FMasterViewController *)navigationController.topViewController;
   controller.managedObjectContext = self.managedObjectContext;
-    return YES;
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -36,11 +37,28 @@
 {
   // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+  // Save app state (are we currently gathering any data?)
+  UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+  FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if (nil != defaults)
+  {
+    [defaults setBool:controller.isGathering forKey:BOOL_GATHERING];
+    [defaults synchronize];
+  }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
   // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+  
+  // Restore the app state (have we finished gathering data?)
+  UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
+  FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if (nil != defaults)
+    controller.isGathering = [defaults boolForKey:BOOL_GATHERING];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

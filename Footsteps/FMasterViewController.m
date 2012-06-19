@@ -7,7 +7,6 @@
 //
 
 #import "FMasterViewController.h"
-#import "FConstants.h"
 
 @interface FMasterViewController ()
 
@@ -36,7 +35,6 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  _isGathering = [self retrieveFromUserDefaults];
 }
 
 - (void)viewDidUnload
@@ -76,7 +74,6 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
   }
   [_locManager startStandardUpdates];
   _isGathering = YES;
-  [self saveToUserDefaults:_isGathering];
 }
 
 - (void)stopGatheringLocationData
@@ -84,26 +81,6 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
   if (nil != _locManager)
     [_locManager stopStandardUpdates];
   _isGathering = NO;
-  [self saveToUserDefaults:_isGathering];
-}
-
-- (void)saveToUserDefaults:(BOOL)gathering
-{
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (nil != defaults)
-  {
-    [defaults setBool:gathering forKey:BOOL_GATHERING];
-    [defaults synchronize];
-  }
-}
-
-- (BOOL)retrieveFromUserDefaults
-{
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  BOOL val = NO;
-  if (nil != defaults)
-    val = [defaults boolForKey:BOOL_GATHERING];
-  return val;
 }
 
 @end
