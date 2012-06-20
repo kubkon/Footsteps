@@ -19,6 +19,7 @@ NSString * const ACCURACY = @"accuracy";
 
 #pragma mark User Defaults
 NSString * const BOOL_GATHERING = @"isGathering";
+NSString * const BOOL_LOW_POWER = @"low_power_toggle_switch";
 
 #pragma mark Files
 NSString * const MARKER_FILENAME = @"marker";

@@ -39,6 +39,7 @@
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 
   // Save app state (are we currently gathering any data?)
+  NSLog(@"Entering background");
   UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
   FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -54,6 +55,7 @@
   // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
   
   // Restore the app state (have we finished gathering data?)
+  NSLog(@"Entering foreground");
   UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
   FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

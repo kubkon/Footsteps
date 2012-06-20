@@ -20,6 +20,7 @@ extern NSString * const ACCURACY;
 
 #pragma mark User Defaults
 extern NSString * const BOOL_GATHERING;
+extern NSString * const BOOL_LOW_POWER;
 
 #pragma mark Files
 extern NSString * const MARKER_FILENAME;

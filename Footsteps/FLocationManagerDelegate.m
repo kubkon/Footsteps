@@ -21,20 +21,21 @@
 {
   self = [super init];
   if (self)
+  {
     _locationManager = [[CLLocationManager alloc] init];
+    [_locationManager setDelegate:self];
+    // Require location updates which are best for navigation
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    // Set distance filter
+    _locationManager.distanceFilter = DISTANCE_FILTER;
+  }
   return self;
 }
 
 - (void)startStandardUpdates
 {
-  if (!_locationManager)
-    _locationManager = [[CLLocationManager alloc] init];
-  
-  [_locationManager setDelegate:self];
-  // Require location updates which are best for navigation
-  _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-  // Set distance filter
-  _locationManager.distanceFilter = DISTANCE_FILTER;
+  // Handle error here
+  NSAssert(_locationManager, @"FLocationManagerDelegate object not properly initialized");
   [_locationManager startUpdatingLocation];
 }
 
@@ -42,6 +43,19 @@
 {
   if (_locationManager)
     [_locationManager stopUpdatingLocation];
+}
+
+- (void)startSignificantChangeUpdates
+{
+  // Handle error here
+  NSAssert(_locationManager, @"FLocationManagerDelegate object not properly initialized");
+  [_locationManager startMonitoringSignificantLocationChanges];
+}
+
+- (void)stopSignificantChangeUpdates
+{
+  if (_locationManager)
+    [_locationManager stopMonitoringSignificantLocationChanges];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation

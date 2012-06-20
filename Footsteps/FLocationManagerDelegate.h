@@ -23,6 +23,9 @@
 - (void)startStandardUpdates;
 - (void)stopStandardUpdates;
 
+- (void)startSignificantChangeUpdates;
+- (void)stopSignificantChangeUpdates;
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
 
 @end

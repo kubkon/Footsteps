@@ -7,6 +7,7 @@
 //
 
 #import "FMasterViewController.h"
+#import "FConstants.h"
 
 @interface FMasterViewController ()
 
@@ -39,8 +40,8 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -72,14 +73,28 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
     _locManager = [[FLocationManagerDelegate alloc] init];
     _locManager.managedObjectContext = self.managedObjectContext;
   }
-  [_locManager startStandardUpdates];
+  // Check which type of location updates we should gather
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  BOOL isLowPowerOn = [defaults boolForKey:BOOL_LOW_POWER];
+  if (isLowPowerOn)
+    [_locManager startSignificantChangeUpdates];
+  else
+    [_locManager startStandardUpdates];
   _isGathering = YES;
 }
 
 - (void)stopGatheringLocationData
 {
-  if (nil != _locManager)
-    [_locManager stopStandardUpdates];
+  if (_locManager)
+  {
+    // Check which type of location updates are being gathered
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL isLowPowerOn = [defaults boolForKey:BOOL_LOW_POWER];
+    if (isLowPowerOn)
+      [_locManager stopSignificantChangeUpdates];
+    else
+      [_locManager stopStandardUpdates];
+  }
   _isGathering = NO;
 }
 

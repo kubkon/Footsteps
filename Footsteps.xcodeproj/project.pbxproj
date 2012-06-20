@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7C133C159206BB00E7E305 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C133B159206BB00E7E305 /* Settings.bundle */; };
 		CE7D9332158CCF40007377E3 /* FConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D9331158CCF40007377E3 /* FConstants.m */; };
 		CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F3158BE99C002DC68B /* UIKit.framework */; };
 		CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F5158BE99C002DC68B /* Foundation.framework */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE7C133B159206BB00E7E305 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7D9331158CCF40007377E3 /* FConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FConstants.m; sourceTree = "<group>"; };
 		CEDA37EF158BE99C002DC68B /* Footsteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footsteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA37F3158BE99C002DC68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -133,6 +135,7 @@
 		CEDA37FC158BE99C002DC68B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE7C133B159206BB00E7E305 /* Settings.bundle */,
 				CEDA37FD158BE99C002DC68B /* Footsteps-Info.plist */,
 				CEDA37FE158BE99C002DC68B /* InfoPlist.strings */,
 				CEDA3801158BE99C002DC68B /* main.m */,
@@ -204,6 +207,7 @@
 				CEDA3800158BE99C002DC68B /* InfoPlist.strings in Resources */,
 				CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */,
 				CEDA382E158C1AC4002DC68B /* marker.png in Resources */,
+				CE7C133C159206BB00E7E305 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
