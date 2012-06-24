@@ -41,9 +41,15 @@
   // Save app state (are we currently gathering any data?)
   NSLog(@"Entering background");
   UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-  FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
+  NSArray *views = nav.viewControllers;
+  FMasterViewController *controller = nil;
+  for (id v in views)
+  {
+    if ([v isKindOfClass:[FMasterViewController class]])
+      controller = (FMasterViewController *)v;
+  }
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (nil != defaults)
+  if (defaults && controller)
   {
     [defaults setBool:controller.isGathering forKey:BOOL_GATHERING];
     [defaults synchronize];
@@ -57,9 +63,15 @@
   // Restore the app state (have we finished gathering data?)
   NSLog(@"Entering foreground");
   UINavigationController *nav = (UINavigationController *)self.window.rootViewController;
-  FMasterViewController *controller = (FMasterViewController *)nav.topViewController;
+  NSArray *views = nav.viewControllers;
+  FMasterViewController *controller = nil;
+  for (id v in views)
+  {
+    if ([v isKindOfClass:[FMasterViewController class]])
+      controller = (FMasterViewController *)v;
+  }
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (nil != defaults)
+  if (defaults && controller)
     controller.isGathering = [defaults boolForKey:BOOL_GATHERING];
 }
 
