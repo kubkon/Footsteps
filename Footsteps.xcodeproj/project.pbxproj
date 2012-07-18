@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE13A86115B6CDC100BC0A96 /* FLocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13A86015B6CDC100BC0A96 /* FLocationRecord.m */; };
 		CE7C133C159206BB00E7E305 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C133B159206BB00E7E305 /* Settings.bundle */; };
 		CE7D9332158CCF40007377E3 /* FConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D9331158CCF40007377E3 /* FConstants.m */; };
 		CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F3158BE99C002DC68B /* UIKit.framework */; };
@@ -25,10 +26,11 @@
 		CEDA3825158BFC7E002DC68B /* FLocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3824158BFC7E002DC68B /* FLocationManagerDelegate.m */; };
 		CEDA3827158BFCA1002DC68B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA3826158BFCA1002DC68B /* CoreLocation.framework */; };
 		CEDA382E158C1AC4002DC68B /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDA382D158C1AC4002DC68B /* marker.png */; };
-		CEDA383A158C1F79002DC68B /* FLocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA3839158C1F79002DC68B /* FLocationRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE13A85F15B6CDC100BC0A96 /* FLocationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLocationRecord.h; sourceTree = "<group>"; };
+		CE13A86015B6CDC100BC0A96 /* FLocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLocationRecord.m; sourceTree = "<group>"; };
 		CE7C133B159206BB00E7E305 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7D9331158CCF40007377E3 /* FConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FConstants.m; sourceTree = "<group>"; };
 		CEDA37EF158BE99C002DC68B /* Footsteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footsteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,8 +58,6 @@
 		CEDA3826158BFCA1002DC68B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CEDA3828158BFEAD002DC68B /* FConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FConstants.h; sourceTree = "<group>"; };
 		CEDA382D158C1AC4002DC68B /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
-		CEDA3838158C1F79002DC68B /* FLocationRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLocationRecord.h; path = ../FLocationRecord.h; sourceTree = "<group>"; };
-		CEDA3839158C1F79002DC68B /* FLocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLocationRecord.m; path = ../FLocationRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 				CEDA382C158C1AB6002DC68B /* Resources */,
 				CEDA3828158BFEAD002DC68B /* FConstants.h */,
 				CE7D9331158CCF40007377E3 /* FConstants.m */,
-				CEDA3838158C1F79002DC68B /* FLocationRecord.h */,
-				CEDA3839158C1F79002DC68B /* FLocationRecord.m */,
+				CE13A85F15B6CDC100BC0A96 /* FLocationRecord.h */,
+				CE13A86015B6CDC100BC0A96 /* FLocationRecord.m */,
 				CEDA3823158BFC7E002DC68B /* FLocationManagerDelegate.h */,
 				CEDA3824158BFC7E002DC68B /* FLocationManagerDelegate.m */,
 				CEDA3804158BE99C002DC68B /* FAppDelegate.h */,
@@ -225,8 +225,8 @@
 				CEDA381D158BF271002DC68B /* FListViewController.m in Sources */,
 				CEDA3820158BF35E002DC68B /* FMapViewController.m in Sources */,
 				CEDA3825158BFC7E002DC68B /* FLocationManagerDelegate.m in Sources */,
-				CEDA383A158C1F79002DC68B /* FLocationRecord.m in Sources */,
 				CE7D9332158CCF40007377E3 /* FConstants.m in Sources */,
+				CE13A86115B6CDC100BC0A96 /* FLocationRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
