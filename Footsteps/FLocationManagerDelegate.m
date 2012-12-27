@@ -79,9 +79,10 @@
     [_locationManager stopMonitoringSignificantLocationChanges];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
   NSLog(@"Location update received");
+  CLLocation *newLocation = [locations lastObject];
   NSDate *eventDate = newLocation.timestamp;
   NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
   if (abs(howRecent) < MIN_AGE_LOCATION_UPDATE)

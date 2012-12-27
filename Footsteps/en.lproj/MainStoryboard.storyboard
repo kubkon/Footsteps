@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="11">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <navigationController id="3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
@@ -18,13 +16,13 @@
                         <segue destination="Ovh-e5-sWS" kind="relationship" relationship="rootViewController" id="bn2-Ro-jgQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-813" y="120"/>
         </scene>
         <!--Master View Controller - Footsteps-->
         <scene sceneID="gXT-aE-Ela">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bHU-0m-3Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Ovh-e5-sWS" customClass="FMasterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XAg-ON-hDW">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -83,20 +81,20 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Footsteps" id="9kQ-7t-rl9"/>
                     <connections>
                         <outlet property="_startStopButton" destination="pI1-J7-zjc" id="aub-8Z-0Z3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHU-0m-3Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-346" y="120"/>
         </scene>
         <!--Map View Controller - MapView-->
         <scene sceneID="Wgr-Tv-cG1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P52-pW-MHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cKf-cd-sSp" customClass="FMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cYV-km-dRM">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -105,13 +103,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="MapView" id="MtQ-Wm-5h6"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P52-pW-MHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="191" y="384"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="EvQ-up-MbG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6QM-PR-MBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="yS6-it-hg8" customClass="FListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="baM-iq-4l0">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -151,6 +149,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="gsh-QI-kL1"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6QM-PR-MBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="191" y="-185"/>
         </scene>

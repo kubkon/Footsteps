@@ -10,6 +10,7 @@
 		CE13A86115B6CDC100BC0A96 /* FLocationRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13A86015B6CDC100BC0A96 /* FLocationRecord.m */; };
 		CE7C133C159206BB00E7E305 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C133B159206BB00E7E305 /* Settings.bundle */; };
 		CE7D9332158CCF40007377E3 /* FConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D9331158CCF40007377E3 /* FConstants.m */; };
+		CEAA16E1168BA52700225557 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAA16E0168BA52700225557 /* Default-568h@2x.png */; };
 		CEDA37F4158BE99C002DC68B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F3158BE99C002DC68B /* UIKit.framework */; };
 		CEDA37F6158BE99C002DC68B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F5158BE99C002DC68B /* Foundation.framework */; };
 		CEDA37F8158BE99C002DC68B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDA37F7158BE99C002DC68B /* CoreGraphics.framework */; };
@@ -33,6 +34,7 @@
 		CE13A86015B6CDC100BC0A96 /* FLocationRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLocationRecord.m; sourceTree = "<group>"; };
 		CE7C133B159206BB00E7E305 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CE7D9331158CCF40007377E3 /* FConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FConstants.m; sourceTree = "<group>"; };
+		CEAA16E0168BA52700225557 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CEDA37EF158BE99C002DC68B /* Footsteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footsteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA37F3158BE99C002DC68B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEDA37F5158BE99C002DC68B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +82,7 @@
 		CEDA37E4158BE99C002DC68B = {
 			isa = PBXGroup;
 			children = (
+				CEAA16E0168BA52700225557 /* Default-568h@2x.png */,
 				CEDA37FB158BE99C002DC68B /* Footsteps */,
 				CEDA37F2158BE99C002DC68B /* Frameworks */,
 				CEDA37F0158BE99C002DC68B /* Products */,
@@ -208,6 +211,7 @@
 				CEDA3809158BE99C002DC68B /* MainStoryboard.storyboard in Resources */,
 				CEDA382E158C1AC4002DC68B /* marker.png in Resources */,
 				CE7C133C159206BB00E7E305 /* Settings.bundle in Resources */,
+				CEAA16E1168BA52700225557 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +307,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Footsteps/Footsteps-Prefix.pch";
 				INFOPLIST_FILE = "Footsteps/Footsteps-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -314,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Footsteps/Footsteps-Prefix.pch";
 				INFOPLIST_FILE = "Footsteps/Footsteps-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
