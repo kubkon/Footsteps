@@ -30,13 +30,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface FLocationManagerDelegate : NSObject <CLLocationManagerDelegate>
-{
+@interface FLocationManagerDelegate : NSObject <CLLocationManagerDelegate> {
   CLLocationManager *_locationManager;
-  NSManagedObjectContext *_managedObjectContext;
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (id)init;

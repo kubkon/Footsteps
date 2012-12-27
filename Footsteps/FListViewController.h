@@ -31,10 +31,6 @@
 #import <CoreData/CoreData.h>
 
 @interface FListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-{
-  NSManagedObjectContext *_managedObjectContext;
-  NSFetchedResultsController *_fetchedResultsController;
-}
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

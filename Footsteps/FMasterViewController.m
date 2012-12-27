@@ -39,8 +39,7 @@
 static NSString *START_BUTTON_LABEL = @"Start";
 static NSString *STOP_BUTTON_LABEL = @"Stop";
 
-@synthesize startStopButton = _startStopButton;
-@synthesize managedObjectContext;
+@synthesize managedObjectContext = _managedObjectContext;
 @synthesize locManager = _locManager;
 @synthesize isGathering = _isGathering;
 
@@ -73,14 +72,11 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
 - (IBAction)gatherDataOnClick:(id)sender
 {
   NSLog(@"Gathering data action...");
-  NSLog(@"Already gathering location: %i", _isGathering);
-  if (_isGathering == YES)
-  {
+  NSLog(@"Already gathering location: %i", self.isGathering);
+  if (self.isGathering == YES) {
     [_startStopButton setTitle:START_BUTTON_LABEL forState:UIControlStateNormal];
     [self stopGatheringLocationData];
-  }
-  else
-  {
+  } else {
     [_startStopButton setTitle:STOP_BUTTON_LABEL forState:UIControlStateNormal];
     [self startGatheringLocationData];
   }
@@ -89,34 +85,32 @@ static NSString *STOP_BUTTON_LABEL = @"Stop";
 
 - (void)startGatheringLocationData
 {
-  if (!_locManager)
-  {
-    _locManager = [[FLocationManagerDelegate alloc] init];
-    _locManager.managedObjectContext = self.managedObjectContext;
+  if (!self.locManager) {
+    self.locManager = [[FLocationManagerDelegate alloc] init];
+    self.locManager.managedObjectContext = self.managedObjectContext;
   }
   // Check which type of location updates we should gather
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   BOOL isLowPowerOn = [defaults boolForKey:BOOL_LOW_POWER];
   if (isLowPowerOn)
-    [_locManager startSignificantChangeUpdates];
+    [self.locManager startSignificantChangeUpdates];
   else
-    [_locManager startStandardUpdates];
-  _isGathering = YES;
+    [self.locManager startStandardUpdates];
+  self.isGathering = YES;
 }
 
 - (void)stopGatheringLocationData
 {
-  if (_locManager)
-  {
+  if (self.locManager) {
     // Check which type of location updates are being gathered
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL isLowPowerOn = [defaults boolForKey:BOOL_LOW_POWER];
     if (isLowPowerOn)
-      [_locManager stopSignificantChangeUpdates];
+      [self.locManager stopSignificantChangeUpdates];
     else
-      [_locManager stopStandardUpdates];
+      [self.locManager stopStandardUpdates];
   }
-  _isGathering = NO;
+  self.isGathering = NO;
 }
 
 @end

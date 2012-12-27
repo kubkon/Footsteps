@@ -33,11 +33,6 @@
 
 
 @interface FLocationRecord : NSManagedObject <MKAnnotation>
-{
-  CLLocationCoordinate2D _coordinate;
-  NSString *_title;
-  NSString *_subtitle;
-}
 
 @property (nonatomic, retain) NSDate *timeStamp;
 @property (nonatomic, retain) NSNumber *latitude;

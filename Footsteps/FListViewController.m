@@ -51,14 +51,14 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
     return _fetchedResultsController;
   
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-  NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:self.managedObjectContext];
   [fetchRequest setEntity:entity];
   
   NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:TIMESTAMP ascending:NO];
   [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
   [fetchRequest setFetchBatchSize:LIST_BATCH_SIZE];
   
-  NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+  NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
   _fetchedResultsController = fetchedResultsController;
   _fetchedResultsController.delegate = self;
   
@@ -80,10 +80,9 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
 
   self.title = LIST_VIEW_TITLE;
   // Get instance of ManagedObjectContext
-  if (!_managedObjectContext)
-  {
+  if (!self.managedObjectContext) {
     FAppDelegate *appDelegate = (FAppDelegate *)[[UIApplication sharedApplication] delegate];
-    _managedObjectContext = appDelegate.managedObjectContext;
+    self.managedObjectContext = appDelegate.managedObjectContext;
   }
   
   // Uncomment the following line to preserve selection between presentations.
@@ -98,18 +97,16 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
   [super viewDidUnload];
   // Release any retained subviews of the main view.
   // e.g. self.myOutlet = nil;
-  _fetchedResultsController = nil;
+  self.fetchedResultsController = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
   
-  if (_managedObjectContext)
-  {
+  if (self.managedObjectContext) {
     NSError *error;
-    if (![[self fetchedResultsController] performFetch:&error])
-    {
+    if (![[self fetchedResultsController] performFetch:&error]) {
       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
       exit(-1);
     }
@@ -132,7 +129,7 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   // Return the number of rows in the section.
-  id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+  id sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
   return [sectionInfo numberOfObjects];
 }
 
@@ -145,7 +142,7 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
   if (!cell)
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
   
-  FLocationRecord *location = [_fetchedResultsController objectAtIndexPath:indexPath];
+  FLocationRecord *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
   NSDateFormatter *format = [[NSDateFormatter alloc] init];
   [format setTimeStyle:NSDateFormatterMediumStyle];
   [format setDateStyle:NSDateFormatterLongStyle];
@@ -219,8 +216,7 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
 {
   UITableView *tableView = self.tableView;
   
-  switch (type)
-  {
+  switch (type) {
     case NSFetchedResultsChangeInsert:
       [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
       break;
@@ -241,8 +237,7 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-  switch (type)
-  {
+  switch (type) {
     case NSFetchedResultsChangeInsert:
       [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
       break;

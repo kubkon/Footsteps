@@ -35,16 +35,13 @@
 
 @implementation FLocationManagerDelegate
 
-@synthesize locationManager = _locationManager;
 @synthesize managedObjectContext = _managedObjectContext;
 
 - (id)init
 {
-  self = [super init];
-  if (self)
-  {
+  if (self = [super init]) {
     _locationManager = [[CLLocationManager alloc] init];
-    [_locationManager setDelegate:self];
+    _locationManager.delegate = self;
     // Require location updates which are best for navigation
     _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     // Set distance filter
@@ -85,17 +82,15 @@
   CLLocation *newLocation = [locations lastObject];
   NSDate *eventDate = newLocation.timestamp;
   NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-  if (abs(howRecent) < MIN_AGE_LOCATION_UPDATE)
-  {
-    if (_managedObjectContext)
-    {
-      NSManagedObject *location = [NSEntityDescription insertNewObjectForEntityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
+  if (abs(howRecent) < MIN_AGE_LOCATION_UPDATE) {
+    if (self.managedObjectContext) {
+      NSManagedObject *location = [NSEntityDescription insertNewObjectForEntityForName:LOCATION_RECORD inManagedObjectContext:self.managedObjectContext];
       [location setValue:eventDate forKey:TIMESTAMP];
       [location setValue:[NSNumber numberWithDouble:newLocation.coordinate.latitude] forKey:LATITUDE];
       [location setValue:[NSNumber numberWithDouble:newLocation.coordinate.longitude] forKey:LONGITUDE];
       [location setValue:[NSNumber numberWithDouble:newLocation.horizontalAccuracy] forKey:ACCURACY];
       NSError *error;
-      if (![_managedObjectContext save:&error])
+      if (![self.managedObjectContext save:&error])
         NSLog(@"Could not save location update: %@", [error localizedDescription]);
     }
   }

@@ -42,9 +42,6 @@
 
 static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
 
-@synthesize mapView = _mapView;
-@synthesize portraitFrameSize = _portraitFrameSize;
-@synthesize landscapeFrameSize = _landscapeFrameSize;
 @synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,17 +69,16 @@ static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
   // Set up MapView and delegate to self
   if (nil == _mapView)
     _mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, _portraitFrameSize.x, _portraitFrameSize.y)];
-  [_mapView setMapType:MKMapTypeStandard];
-  [_mapView setDelegate:self];
-  [_mapView setZoomEnabled:YES];
-  [_mapView setScrollEnabled:YES];
+  _mapView.mapType = MKMapTypeStandard;
+  _mapView.delegate = self;
+  _mapView.zoomEnabled = YES;
+  _mapView.scrollEnabled = YES;
   [self.view addSubview:_mapView];
   
   // Get an instance of ManagedObjectContext
-  if (!_managedObjectContext)
-  {
+  if (!self.managedObjectContext) {
     FAppDelegate *appDelegate = (FAppDelegate *)[[UIApplication sharedApplication] delegate];
-    _managedObjectContext = appDelegate.managedObjectContext;
+    self.managedObjectContext = appDelegate.managedObjectContext;
   }
 }
 
@@ -99,7 +95,7 @@ static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
   
   // Fetch location records and place them on the map
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-  NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:_managedObjectContext];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:self.managedObjectContext];
   [fetchRequest setEntity:entity];
   // Fetch only records that occurred up to 6 hours ago (inclusive)
   NSDate *now = [NSDate date];
@@ -111,9 +107,8 @@ static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
   [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
   NSError *error;
   // Execute the fetch request
-  NSArray *locations = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-  if ([locations count] > 0)
-  {
+  NSArray *locations = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+  if ([locations count] > 0) {
     // Place location updates as annotations on the map
     [_mapView addAnnotations:locations];
     // Center the map on the latest location update annotation with
@@ -142,10 +137,10 @@ static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
   BOOL rotateLandscape90D = (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft && (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)) || (self.interfaceOrientation == UIInterfaceOrientationLandscapeRight && (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown));
   
   if (rotatePortrait90D || rotateLandscape180D)
-    [_mapView setFrame:CGRectMake(0, 0, _landscapeFrameSize.x, _landscapeFrameSize.y)];
+    _mapView.frame = CGRectMake(0, 0, _landscapeFrameSize.x, _landscapeFrameSize.y);
   
   if (rotatePortrait180D || rotateLandscape90D)
-    [_mapView setFrame:CGRectMake(0, 0, _portraitFrameSize.x, _portraitFrameSize.y)];
+    _mapView.frame = CGRectMake(0, 0, _portraitFrameSize.x, _portraitFrameSize.y);
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -157,16 +152,15 @@ static NSString *DEFAULT_ANNOTATION_VIEW = @"FAnnotationView";
   // Handle any custom annotations
   MKAnnotationView *anntView = (MKAnnotationView *)[_mapView dequeueReusableAnnotationViewWithIdentifier:DEFAULT_ANNOTATION_VIEW];
   
-  if (!anntView)
-  {
+  if (!anntView) {
     anntView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:DEFAULT_ANNOTATION_VIEW];
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:MARKER_FILENAME ofType:MARKER_EXT];
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     anntView.image = image;
     anntView.canShowCallout = YES;
-  }
-  else
+  } else {
     anntView.annotation = annotation;
+  }
   
   return anntView;
 }
