@@ -8,7 +8,7 @@
 #import "FLocationManagerDelegate.h"
 #import "FConstants.h"
 
-#define DISTANCE_FILTER 50
+#define DISTANCE_FILTER 100
 #define MIN_AGE_LOCATION_UPDATE 60.0
 
 @implementation FLocationManagerDelegate
@@ -20,8 +20,8 @@
   if (self = [super init]) {
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
-    // Require location updates which are best for navigation
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    // Require location updates of medium accuracy
+    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     // Set distance filter
     _locationManager.distanceFilter = DISTANCE_FILTER;
   }

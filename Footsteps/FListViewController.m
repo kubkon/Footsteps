@@ -30,11 +30,11 @@ static NSString *LIST_VIEW_TITLE = @"ListView";
   
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
   NSEntityDescription *entity = [NSEntityDescription entityForName:LOCATION_RECORD inManagedObjectContext:self.managedObjectContext];
-  [fetchRequest setEntity:entity];
+  fetchRequest.entity = entity;
   
   NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:TIMESTAMP ascending:NO];
-  [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
-  [fetchRequest setFetchBatchSize:LIST_BATCH_SIZE];
+  fetchRequest.sortDescriptors = [NSArray arrayWithObject:sort];
+  fetchRequest.fetchBatchSize = LIST_BATCH_SIZE;
   
   NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
   _fetchedResultsController = fetchedResultsController;
